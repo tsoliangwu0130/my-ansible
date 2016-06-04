@@ -1,0 +1,10 @@
+---
+  - name: install git
+    yum: name=git-all
+    become: yes
+
+  - name: clone api
+    git: repo=https://github.com/osu-mist/{{ api_dir }}.git
+         dest=/home/vagrant/apis/{{ api_dir }}
+         accept_hostkey=yes
+    become: yes

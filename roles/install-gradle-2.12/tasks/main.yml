@@ -1,0 +1,18 @@
+---
+  - name: download Gradle {{gradle_version}}
+    get_url: dest="{{ansible_tmp_dir}}" url=https://services.gradle.org/distributions/{{gradle_zipfile}}
+
+  - name: install unzip
+    yum: name=unzip
+    become: yes
+
+  - name: extract Gradle
+    shell: unzip "{{ansible_tmp_dir}}/{{gradle_zipfile}}" -d /usr/local/share/ creates=/usr/local/share/{{gradle_folder}}
+    become: yes
+
+  - name: add Gradle executable symlink to path
+    shell: ln -s /usr/local/share/{{gradle_folder}}/bin/gradle /usr/local/bin/gradle creates=/usr/local/bin/gradle
+    become: yes
+
+  - name: clean up
+    file: state=absent path={{ansible_tmp_dir}}/{{gradle_zipfile}}

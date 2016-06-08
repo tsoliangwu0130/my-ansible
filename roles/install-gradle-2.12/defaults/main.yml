@@ -1,4 +1,0 @@
----
-gradle_version: "2.12"
-gradle_zipfile: "gradle-{{gradle_version}}-all.zip"
-gradle_folder:  "gradle-{{gradle_version}}"

@@ -1,0 +1,11 @@
+---
+ansible_tmp_dir: .ansible/tmp
+
+api_dir: api-examples
+api_repo_url: https://github.com/osu-mist/{{ api_dir }}.git
+
+# put the hashed password here, see more detail: http://goo.gl/tFhVzS
+user_psw: changeme
+
+# API version
+api_version: HEAD

@@ -1,0 +1,6 @@
+---
+  - hosts: dropwizard-servers
+    roles:
+    - install-openjdk-7
+    - create-directories
+    - clone-api

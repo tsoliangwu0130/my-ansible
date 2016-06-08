@@ -1,0 +1,15 @@
+---
+  - name: install git
+    yum: name=git-all
+    become: yes
+
+  - name: clone api
+    git: repo={{ api_repo_url }}
+         dest=/apis/{{ api_dir }}
+         accept_hostkey=yes
+         version={{ api_version }}
+    become: yes
+
+  - name: setup the dir mode and owner
+    file: path=/apis/{{ api_dir }} group=apis owner=osu_apis mode=0770 recurse=yes
+    become: yes

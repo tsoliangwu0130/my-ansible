@@ -1,0 +1,9 @@
+---
+  - name: download elasticsearch tar file
+    get_url: url={{ elasticsearch_download_url }} dest=/elasticsearch-{{ elasticsearch_version }}.tar.gz
+
+  - name: unarchive elasticsearch tar file
+    unarchive: src=/elasticsearch-{{ elasticsearch_version }}.tar.gz dest=/ copy=no
+
+  - name: clean up elasticsearch tar file
+    file: path=/elasticsearch-{{ elasticsearch_version }}.tar.gz state=absent

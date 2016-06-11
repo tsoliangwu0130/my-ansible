@@ -1,0 +1,36 @@
+---
+  - name: download plugins
+    get_url: url=http://updates.jenkins-ci.org/latest/{{ item }}.hpi dest={{ jenkins_home }}plugins/{{ item }}.hpi
+    with_items:
+      - cas-plugin
+      - credentials
+      - git
+      - git-client
+      - github-api
+      - gradle
+      - greenballs
+      - hipchat
+      - javadoc
+      - jira
+      - job-dsl
+      - junit
+      - mailer
+      - matrix-project
+      - maven-plugin
+      - parameterized-trigger
+      - project-inheritance
+      - promoted-builds
+      - scm-api
+      - script-security
+      - ssh-credentials
+      - structs
+      - rebuild
+      - token-macro
+      - workflow-step-api
+    become: yes
+
+  - name: restart jenkins
+    service:
+      name: jenkins
+      state: restarted
+    become: yes

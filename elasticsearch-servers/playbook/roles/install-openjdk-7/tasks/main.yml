@@ -1,0 +1,9 @@
+---
+  - name: install OpenJDK
+    yum: name=java-1.7.0-openjdk-devel
+
+  - name: set JAVA_HOME environment variable
+    lineinfile: dest=/home/{{ ansible_ssh_user }}/.bashrc line="export JAVA_HOME="{{ java_home }}""
+
+  - name: source .bashrc file
+    shell: source /home/{{ ansible_ssh_user }}/.bashrc

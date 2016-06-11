@@ -1,0 +1,7 @@
+---
+  - name: jenkins servers installation
+    hosts: jenkins-servers
+    roles:
+    - install-openjdk-7
+    - install-jenkins
+    - install-jenkins-plugins

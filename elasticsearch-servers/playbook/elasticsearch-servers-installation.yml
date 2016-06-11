@@ -1,0 +1,5 @@
+---
+  - hosts: elasticsearch-servers
+    roles:
+    - {role: install-openjdk-7, become: yes}
+    - {role: install-elasticsearch, become: yes}

@@ -1,0 +1,4 @@
+---
+  - name: install OpenJDK
+    apt: name=openjdk-7-jre
+    become: yes

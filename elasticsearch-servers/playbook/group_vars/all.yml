@@ -1,0 +1,5 @@
+---
+  java_home: /usr/lib/jvm/java-1.7.0-openjdk.x86_64
+
+  elasticsearch_version: 2.3.3
+  elasticsearch_download_url: https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/{{ elasticsearch_version }}/elasticsearch-{{ elasticsearch_version }}.tar.gz

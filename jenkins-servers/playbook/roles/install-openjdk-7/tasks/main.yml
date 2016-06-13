@@ -1,4 +1,9 @@
 ---
   - name: install OpenJDK
-    apt: name=openjdk-7-jre
-    become: yes
+    apt: name=openjdk-7-jdk
+
+  - name: set JAVA_HOME environment variable
+    lineinfile: dest=/home/{{ ansible_ssh_user }}/.bashrc line="export JAVA_HOME="{{ java_home }}""
+
+  - name: source .bashrc file
+    shell: . /home/{{ ansible_ssh_user }}/.bashrc

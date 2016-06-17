@@ -1,2 +1,5 @@
+# .vagrant
+.vagrant/
+
 # .retry
 *.retry

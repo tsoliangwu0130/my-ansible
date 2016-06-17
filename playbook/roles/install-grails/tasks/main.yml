@@ -1,0 +1,8 @@
+---
+  - name: check grails is installed
+    shell: bash -lc "sdk current grails" executable=/bin/bash
+    register: grails_installed_out
+
+  - name: install grails {{ grails_version }}
+    shell: bash -lc "sdk install grails {{ grails_version }}" executable=/bin/bash
+    when: not(grails_installed_out.stdout | match("Using grails version {{ grails_version }}"))

@@ -1,0 +1,81 @@
+---
+  - name: download plugins
+    get_url: url=http://updates.jenkins-ci.org/latest/{{ item }}.hpi dest={{ jenkins_home }}plugins/{{ item }}.hpi owner=jenkins group=jenkins
+    with_items:
+      - ace-editor
+      - analysis-core
+      - ant
+      - antisamy-markup-formatter
+      - branch-api
+      - build-timeout
+      - cas-plugin
+      - cloudbees-folder
+      - config-file-provider
+      - credentials
+      - credentials-binding
+      - dashboard-view
+      - durable-task
+      - email-ext
+      - git
+      - github
+      - github-branch-source
+      - git-client
+      - github-organization-folder
+      - git-server
+      - github-api
+      - gradle
+      - grails
+      - greenballs
+      - handlebars
+      - hipchat
+      - icon-shim
+      - javadoc
+      - jira
+      - job-dsl
+      - jquery-detached
+      - junit
+      - ldap
+      - mailer
+      - matrix-auth
+      - matrix-project
+      - mapdb-api
+      - maven-plugin
+      - momentjs
+      - pam-auth
+      - pipeline-build-step
+      - pipeline-input-step
+      - pipeline-stage-step
+      - pipeline-stage-view
+      - pipeline-rest-api
+      - plain-credentials
+      - parameterized-trigger
+      - project-inheritance
+      - promoted-builds
+      - rebuild
+      - role-strategy
+      - scm-api
+      - script-security
+      - ssh-credentials
+      - ssh-slaves
+      - structs
+      - subversion
+      - timestamper
+      - token-macro
+      - windows-slaves
+      - workflow-aggregator
+      - workflow-basic-steps
+      - workflow-api
+      - workflow-durable-task-step
+      - workflow-cps
+      - workflow-cps-global-lib
+      - workflow-job
+      - workflow-multibranch
+      - workflow-scm-step
+      - workflow-step-api
+      - workflow-support
+      - ws-cleanup
+
+  - name: restart jenkins
+    service:
+      name: jenkins
+      state: restarted

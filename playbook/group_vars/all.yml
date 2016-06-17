@@ -1,0 +1,8 @@
+---
+java_home: /usr/lib/jvm/java-1.7.0-openjdk-i386
+
+gradle_version: 2.12
+
+grails_version: 2.3.7
+
+jenkins_home: /var/lib/jenkins/

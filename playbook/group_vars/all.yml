@@ -1,9 +1,9 @@
 ---
 java_home: /usr/lib/jvm/java-1.7.0-openjdk-i386
 
-jenkins_home: /var/lib/jenkins/
+jenkins_home: /var/lib/jenkins
 
-sdkman_dir: "{{ jenkins_home }}.sdkman/"
+sdkman_dir: "{{ jenkins_home }}/.sdkman"
 
 gradle_version: 2.12
 gradle_home: "{{ sdkman_dir }}candidates/gradle/{{ gradle_version }}"

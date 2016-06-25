@@ -9,16 +9,16 @@
     become_user: jenkins
 
   - name: download sdkman installation script
-    get_url: url=http://get.sdkman.io dest={{ jenkins_home }}sdk_install.sh mode=0775 owner=jenkins group=jenkins
+    get_url: url=http://get.sdkman.io dest={{ jenkins_home }}/sdk_install.sh mode=0775 owner=jenkins group=jenkins
     when: not(sdk_installed_out.stdout | match("SDKMAN *"))
 
   - name: run sdkman script
-    shell: "{{ jenkins_home }}sdk_install.sh"
+    shell: "{{ jenkins_home }}/sdk_install.sh"
     when: not(sdk_installed_out.stdout | match("SDKMAN *"))
     become_user: jenkins
 
   - name: clean up sdkman installation script
-    file: path={{ jenkins_home }}sdk_install.sh state=absent
+    file: path={{ jenkins_home }}/sdk_install.sh state=absent
     when: not(sdk_installed_out.stdout | match("SDKMAN *"))
     become_user: jenkins
 

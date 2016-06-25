@@ -1,0 +1,20 @@
+---
+  - name: add jenkins key
+    apt_key: url=http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key state=present
+
+  - name: add jenkins repository
+    apt_repository: repo='deb http://pkg.jenkins-ci.org/debian binary/' state=present update_cache=yes
+
+  - name: install jenkins
+    apt: name=jenkins state=latest
+
+  - name: run jenkins
+    service:
+      name: jenkins
+      state: started
+
+  - name: install plugins
+    include: install-plugins.yml
+
+  - name: set up forwarding port (80 -> 8080)
+    include: setup-forwarding-port.yml

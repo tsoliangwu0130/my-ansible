@@ -1,0 +1,15 @@
+---
+  - name: add listening ports to iptables
+    shell: iptables -I INPUT 1 -p tcp --dport {{ item }} -j ACCEPT
+    with_items:
+      - 8080
+      - 80
+
+  - name: forward port 80 traffic to 8080
+    shell: iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+  - name: save the configuration
+    shell: sh -c "iptables-save > /etc/iptables.rules"
+
+  - name: configure iptables to be retained across reboots
+    apt: name=iptables-persistent update_cache=yes

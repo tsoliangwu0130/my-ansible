@@ -1,12 +1,12 @@
 ---
   - name: vagrant server installation
     hosts: vagrant-server
-
     environment:
+      SDKMAN_DIR: "{{ sdkman_dir }}"
       JAVA_HOME: "{{ java_home }}"
-
     roles:
       - { role: install-openjdk-7, become: yes }
+      - { role: install-jenkins, become: yes }
       - { role: install-sdkman, become: yes }
       - { role: install-gradle, become: yes }
       - { role: install-grails, become: yes }

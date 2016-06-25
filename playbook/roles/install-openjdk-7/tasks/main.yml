@@ -1,0 +1,7 @@
+---
+  - name: install OpenJDK
+    apt: name=openjdk-7-jdk
+
+  - name: export JAVA_HOME environment variable
+    shell: export JAVA_HOME=$JAVA_HOME
+  

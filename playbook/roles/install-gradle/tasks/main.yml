@@ -1,8 +1,0 @@
----
-  - name: check gradle is installed
-    shell: bash -lc "sdk current gradle" executable=/bin/bash
-    register: gradle_installed_out
-
-  - name: install gradle {{ gradle_version }}
-    shell: bash -lc "sdk install gradle {{ gradle_version }}" executable=/bin/bash
-    when: not(gradle_installed_out.stdout | match("Using gradle version {{ gradle_version }}"))

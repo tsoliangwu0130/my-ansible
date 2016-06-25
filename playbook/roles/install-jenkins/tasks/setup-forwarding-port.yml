@@ -12,4 +12,6 @@
     shell: sh -c "iptables-save > /etc/iptables.rules"
 
   - name: configure iptables to be retained across reboots
-    apt: name=iptables-persistent update_cache=yes
+    apt: 
+      name: iptables-persistent
+      update_cache: yes

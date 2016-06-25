@@ -1,6 +1,10 @@
 ---
   - name: install plugins
-    get_url: url=http://updates.jenkins-ci.org/latest/{{ item }}.hpi dest={{ jenkins_home }}/plugins/{{ item }}.hpi owner=jenkins group=jenkins
+    get_url: 
+      url: http://updates.jenkins-ci.org/latest/{{ item }}.hpi
+      dest: "{{ jenkins_home }}/plugins/{{ item }}.hpi"
+      owner: jenkins
+      group: jenkins
     with_items:
       - ace-editor
       - analysis-core

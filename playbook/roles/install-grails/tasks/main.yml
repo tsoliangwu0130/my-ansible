@@ -5,8 +5,8 @@
     become_user: jenkins
 
   - name: install grails 2.3 / 2.5
-    shell: bash -lc "sdk install grails {{ item }}" update_cache=yes
-    when: not(grails_installed_out.stdout | match("Using grails version {{ item }}"))
+    shell: bash -lc "sdk install grails {{ item }}"
+    when: not grails_installed_out.stdout | match("Using grails version {{ item }}")
     with_items:
       - "{{ grails_version_2_3 }}"
       - "{{ grails_version_2_5 }}"

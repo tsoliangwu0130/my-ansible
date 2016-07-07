@@ -1,5 +1,5 @@
 ---
-java_home: /usr/lib/jvm/java-1.7.0-openjdk-i386
+java_home: /usr/lib/jvm/java-1.7.0-openjdk-amd64
 
 jenkins_home: /var/lib/jenkins
 

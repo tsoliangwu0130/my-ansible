@@ -1,0 +1,12 @@
+---
+- hosts: ironman
+  tasks:
+    # task 1
+    - name: test connection
+      ping:
+      register: message
+
+    # task 2
+    - name: print debug message
+      debug:
+        msg: "{{ message }}"

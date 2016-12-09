@@ -1,0 +1,5 @@
+---
+  - name: install curl
+    apt:
+      name: curl
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'

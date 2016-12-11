@@ -1,0 +1,3 @@
+---
+  dependencies:
+    - { role: curl, become: yes }

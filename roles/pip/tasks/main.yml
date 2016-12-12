@@ -1,0 +1,26 @@
+---
+  - name: Add EPEL repository
+    yum_repository:
+      name: EPEL
+      description: EPEL yum repo
+      baseurl: http://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+      gpgkey: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+    when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
+
+  - name: install EPEL
+    yum:
+      name: epel-release
+    when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+
+  - name: install pip
+    yum:
+      name: python-pip
+      state: installed
+      update_cache: yes
+    when: ansible_distribution == 'CentOS'
+
+  - name: install pip
+    apt:
+      name: python-pip
+      update_cache: yes
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'

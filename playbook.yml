@@ -1,4 +1,4 @@
 ---
 - hosts: ironman
   roles:
-    - { role: jenkins, become: true }
+    - { role: jenkins, become: yes }

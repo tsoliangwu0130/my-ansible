@@ -10,6 +10,8 @@
     get_url:
       url: http://updates.jenkins-ci.org/latest/{{ item }}.hpi
       dest: "{{ jenkins_plugins_path }}/{{ item }}.hpi"
+      owner: jenkins
+      group: jenkins
     with_items:
       - ace-editor
       - antisamy-markup-formatter
@@ -18,6 +20,7 @@
       - branch-api
       - build-timeout
       - cloudbees-folder
+      - credentials
       - credentials-binding
       - display-url-api
       - durable-task

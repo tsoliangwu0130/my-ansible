@@ -16,3 +16,6 @@
 
   - name: install plugins
     include: install_plugins.yml
+
+  - name: install jenkins_job dependencies
+    include: jenkins_job_dependencies.yml

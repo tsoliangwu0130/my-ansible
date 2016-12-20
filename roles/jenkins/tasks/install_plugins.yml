@@ -75,8 +75,5 @@
       - workflow-step-api
       - workflow-support
       - ws-cleanup
-
-  - name: restart jenkins
-    service:
-      name: jenkins
-      state: restarted
+    notify:
+      - restart jenkins

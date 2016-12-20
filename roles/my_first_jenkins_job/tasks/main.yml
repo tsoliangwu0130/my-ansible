@@ -4,5 +4,7 @@
       config: "{{ lookup('template', 'templates/config.xml.j2') }}"
       name: my_first_jenkins_job
       url: "http://localhost:8080"
-      user: admin
-      password: admin
+      user: "{{ user }}"
+      password: "{{ password }}"
+    notify:
+      - restart jenkins

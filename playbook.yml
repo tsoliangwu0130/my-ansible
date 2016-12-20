@@ -1,4 +1,4 @@
 ---
 - hosts: ironman
   roles:
-    - { role: my_first_jenkins_job, become: yes }
+    - { role: my_first_jenkins_job, become: yes, user: admin, password: admin}

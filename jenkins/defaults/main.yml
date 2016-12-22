@@ -1,3 +1,0 @@
----
-jenkins_home: /var/lib/jenkins
-jenkins_plugins_path: "{{ jenkins_home }}/plugins"

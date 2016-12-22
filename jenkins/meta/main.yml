@@ -1,0 +1,5 @@
+---
+  dependencies:
+    - { role: curl, become: yes }
+    - { role: git, become: yes }
+    - { role: ansible-lint, become: yes }

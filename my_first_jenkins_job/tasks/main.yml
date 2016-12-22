@@ -1,0 +1,10 @@
+---
+  - name: create jenkins job - my_first_jenkins_job
+    jenkins_job:
+      config: "{{ lookup('template', 'templates/config.xml.j2') }}"
+      name: my_first_jenkins_job
+      url: "http://localhost:8080"
+      user: "{{ user }}"
+      password: "{{ password }}"
+    notify:
+      - restart jenkins

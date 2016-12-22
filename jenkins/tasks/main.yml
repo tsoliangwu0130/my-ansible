@@ -1,0 +1,21 @@
+---
+  - name: add jenkins key
+    apt_key:
+      url: http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key
+      state: present
+
+  - name: add jenkins repository
+    apt_repository:
+      repo: deb http://pkg.jenkins-ci.org/debian binary/
+      state: present
+
+  - name: install jenkins
+    apt:
+      name: jenkins
+      update_cache: yes
+
+  - name: install plugins
+    include: install_plugins.yml
+
+  - name: install jenkins_job dependencies
+    include: jenkins_job_dependencies.yml

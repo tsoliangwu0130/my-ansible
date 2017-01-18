@@ -1,11 +1,11 @@
 import pathlib
+import re
 import shutil
 import sys
 import urllib.request
 import zipfile
 
-dependecies_list = []
-i = 0
+dependecies_list, i = [], 0
 
 
 def get_dependencies(plugin):
@@ -22,40 +22,36 @@ def get_dependencies(plugin):
 	for line in f:
 		if line.startswith('Plugin-Dependencies'):
 			section = True
-		elif line.startswith('Plugin-Developers'):
+		elif not line.startswith(' '):
 			section = False
 		if section:
-			plain_str += line.rstrip().lstrip('Plugin-Dependencies:').lstrip(' ')
+			plain_str += re.search(r"\S* (.*)", line).groups()[0]
 
 	for item in plain_str.split(','):
 		item = item.split(':')[0]
 		if item not in dependecies_list:
 			dependecies_list.append(item)
-		else:
-			print(item + " is already exists!")
 
 	# clean meta directory
 	shutil.rmtree('META-INF')
 
 	while i < len(dependecies_list):
-		print(dependecies_list)
 		download_plugin(dependecies_list[i])
 		i += 1
 
 
 def download_plugin(plugin):
-	plugin += ".hpi"
-	download_url = "https://updates.jenkins-ci.org/latest/"
+	download_url = 'https://updates.jenkins-ci.org/latest/'
+	plugin += '.hpi'
 
-	if plugin == ".hpi":
-		return
-	elif pathlib.Path(plugin).is_file():
-		print(plugin + " is already downloaded!")
+	if plugin == '.hpi' or pathlib.Path(plugin).is_file():
 		return
 
-	print('Now downloading ' + plugin + '...')
+	print('Download ' + plugin + ' now...')
 	urllib.request.urlretrieve(download_url + plugin, plugin)
 	get_dependencies(plugin)
 
 if __name__ == '__main__':
 	download_plugin(sys.argv[1])
+	print('==== Download process is done! ====')
+	print('Download List:', dependecies_list)

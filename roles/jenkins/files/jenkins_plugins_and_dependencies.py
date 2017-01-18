@@ -4,10 +4,13 @@ import sys
 import urllib.request
 import zipfile
 
-dependecies_list, download_url = [], "https://updates.jenkins-ci.org/latest/"
+dependecies_list = []
+i = 0
 
 
 def get_dependencies(plugin):
+	global i
+
 	# unzip plugin file
 	zip_ref = zipfile.ZipFile(plugin, 'r')
 	zip_ref.extract('META-INF/MANIFEST.MF', '.')
@@ -28,20 +31,29 @@ def get_dependencies(plugin):
 		item = item.split(':')[0]
 		if item not in dependecies_list:
 			dependecies_list.append(item)
+		else:
+			print(item + " is already exists!")
 
 	# clean meta directory
 	shutil.rmtree('META-INF')
 
-	i = 0
 	while i < len(dependecies_list):
-		if not pathlib.Path(item).is_file():
-			download_plugin(item)
+		print(dependecies_list)
+		download_plugin(dependecies_list[i])
 		i += 1
 
 
 def download_plugin(plugin):
-	print('Now downloading ' + plugin + '...')
 	plugin += ".hpi"
+	download_url = "https://updates.jenkins-ci.org/latest/"
+
+	if plugin == ".hpi":
+		return
+	elif pathlib.Path(plugin).is_file():
+		print(plugin + " is already downloaded!")
+		return
+
+	print('Now downloading ' + plugin + '...')
 	urllib.request.urlretrieve(download_url + plugin, plugin)
 	get_dependencies(plugin)
 

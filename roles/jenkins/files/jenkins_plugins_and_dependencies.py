@@ -11,12 +11,12 @@ dependecies_list, i = [], 0
 def get_dependencies(plugin):
 	global i
 
-	# unzip plugin file
+	# Unzip plugin file
 	zip_ref = zipfile.ZipFile(plugin, 'r')
 	zip_ref.extract('META-INF/MANIFEST.MF', '.')
 	zip_ref.close()
 
-	# analyze plugin dependencies list
+	# Analyze plugin dependencies list
 	section, plain_str = False, ""
 	f = open('META-INF/MANIFEST.MF', 'r')
 	for line in f:
@@ -32,7 +32,7 @@ def get_dependencies(plugin):
 		if item not in dependecies_list:
 			dependecies_list.append(item)
 
-	# clean meta directory
+	# Clean meta directory
 	shutil.rmtree('META-INF')
 
 	while i < len(dependecies_list):

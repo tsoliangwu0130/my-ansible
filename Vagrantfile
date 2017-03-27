@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
-	# Server: jenksin_server
-	config.vm.define :jenksin_server do |jenkins_config|
+	# Server: jenkins_server
+	config.vm.define :jenkins_server do |jenkins_config|
 		jenkins_config.vm.box = "hashicorp/precise64"
 		jenkins_config.vm.network "forwarded_port", guest: 8080, host: 9080
 

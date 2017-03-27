@@ -1,4 +1,4 @@
 ---
-- hosts: jenksin_server
+- hosts: jenkins_server
   roles:
-    - { role: my_first_jenkins_job, become: yes, user: admin, password: admin}
+    - { role: jenkins, become: yes, user: admin, password: admin}

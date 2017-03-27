@@ -1,5 +1,5 @@
 ---
-- hosts: jenksin_server
+- hosts: jenkins_server
   tasks:
     # task 1
     - name: test connection

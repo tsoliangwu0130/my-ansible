@@ -1,10 +1,10 @@
 ---
-  - name: install git
+  - name: install git (CentOS)
     yum:
       name: git-all
     when: ansible_distribution == 'CentOS'
 
-  - name: install git
+  - name: install git (Ubuntu/Debian)
     apt:
       name: git
     when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'

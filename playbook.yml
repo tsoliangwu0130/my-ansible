@@ -1,4 +1,4 @@
 ---
-- hosts: ironman
+- hosts: jenksin_server
   roles:
     - { role: my_first_jenkins_job, become: yes, user: admin, password: admin}

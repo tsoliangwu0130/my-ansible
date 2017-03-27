@@ -1,5 +1,5 @@
 ---
-- hosts: ironman
+- hosts: jenksin_server
   tasks:
     # task 1
     - name: test connection

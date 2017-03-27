@@ -12,6 +12,6 @@ Vagrant.configure("2") do |config|
 
 	# Server: jenkins_target
 	config.vm.define :jenkins_target do |jenkins_target_config|
-		ironman_target_config.vm.box = "hashicorp/precise64"
+		jenkins_target_config.vm.box = "hashicorp/precise64"
 	  end	
 end

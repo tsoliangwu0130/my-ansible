@@ -13,3 +13,17 @@
     apt:
       name: jenkins
       update_cache: yes
+
+  - name: create custom init scripts directory
+    file:
+      path: "{{ jenkins_home }}/init.groovy.d"
+      state: directory
+      owner: jenkins
+      group: jenkins
+      mode: 0775
+
+  - name: create post-initialization script
+    template:
+      src: basic_security.groovy
+      dest: "{{ jenkins_home }}/init.groovy.d/basic_security.groovy"
+    notify: restart jenkins

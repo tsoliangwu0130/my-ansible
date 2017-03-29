@@ -2,7 +2,5 @@
 jenkins_home: /var/lib/jenkins
 jenkins_plugins_path: "{{ jenkins_home }}/plugins"
 
-my_jenkins_params:
-  url_username: admin
-  url_password: admin
-  url: http://localhost:8080
+jenkins_admin_username: tsoliang
+jenkins_admin_password: tsoliang

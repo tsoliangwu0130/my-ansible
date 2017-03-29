@@ -1,12 +1,12 @@
 ---
-  - name: Install Ansible-lint dependencies (via pip)
+  - name: install ansible-lint dependencies (via pip)
     pip:
       name: "{{ item }}"
     with_items:
       - markupsafe
       - PyYAML
 
-  - name: Install Ansible-lint dependencies (via apt-get)
+  - name: install ansible-lint dependencies (via apt-get)
     apt:
       name: "{{ item }}"
       update_cache: yes
@@ -20,6 +20,6 @@
       - python-dev
     when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
 
-  - name: Install Ansible-lint
+  - name: install ansible-lint
     pip:
       name: ansible-lint

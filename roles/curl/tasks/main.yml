@@ -1,10 +1,10 @@
 ---
-  - name: Install curl (CentOS)
+  - name: install curl (CentOS)
     yum:
       name: curl
     when: ansible_distribution == 'CentOS'
 
-  - name: Install curl (Ubuntu/Debian)
+  - name: install curl (Ubuntu/Debian)
     apt:
       name: curl
     when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'

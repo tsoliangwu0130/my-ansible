@@ -1,6 +1,26 @@
 ---
 jenkins_home: /var/lib/jenkins
-jenkins_plugins_path: "{{ jenkins_home }}/plugins"
 
 jenkins_admin_username: tsoliang
 jenkins_admin_password: tsoliang
+
+jenkins_plugins:
+  - ant
+  - antisamy-markup-formatter
+  - build-timeout
+  - cloudbees-folder
+  - credentials-binding
+  - email-ext
+  - git
+  - github-organization-folder 
+  - gradle
+  - ldap
+  - mailer
+  - matrix-auth
+  - pam-auth
+  - pipeline-stage-view
+  - ssh-slaves
+  - subversion
+  - timestamper
+  - workflow-aggregator
+  - ws-cleanup

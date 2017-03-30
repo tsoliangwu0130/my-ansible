@@ -4,7 +4,7 @@ jenkins_home: /var/lib/jenkins
 jenkins_admin_username: tsoliang
 jenkins_admin_password: tsoliang
 
-jenkins_plugins:
+jenkins_plugins_list:
   - ant
   - antisamy-markup-formatter
   - build-timeout

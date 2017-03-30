@@ -30,5 +30,6 @@
 
   - name: install jenkins plugins
     jenkins_plugin:
-      name: "{{ itme }}"
+      name: "{{ item }}"
     with_items: "{{ jenkins_plugins }}"
+    notify: restart jenkins

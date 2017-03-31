@@ -26,12 +26,14 @@
     template:
       src: basic_security.groovy
       dest: "{{ jenkins_home }}/init.groovy.d/basic_security.groovy"
-
-  - name: install jenkins plugins
-    jenkins_plugin:
-      name: "{{ item }}"
-      url_username: "{{ jenkins_admin_username }}"
-      url_password: "{{ jenkins_admin_password }}"
-      url: "{{ jenkins_url }}"
-    with_items: "{{ jenkins_plugins_list }}"
+      owner: jenkins
+      group: jenkins
     notify: restart jenkins
+
+  # - name: immediately restart jenkins
+  #   service:
+  #     name: jenkins
+  #     state: restarted
+
+  # - name: install jenkins plugins
+  #   include: plugins.yml

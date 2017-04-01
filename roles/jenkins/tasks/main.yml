@@ -30,10 +30,12 @@
       group: jenkins
     notify: restart jenkins
 
-  # - name: immediately restart jenkins
-  #   service:
-  #     name: jenkins
-  #     state: restarted
+  # Make sure Jenkins is started
+  - name: ensure jenkins is started and runs on startup
+    service:
+      name: jenkins
+      state: started
+      enabled: yes
 
-  # - name: install jenkins plugins
-  #   include: plugins.yml
+  - name: install jenkins plugins
+    include: plugins.yml

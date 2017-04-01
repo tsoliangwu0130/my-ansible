@@ -30,13 +30,6 @@
       group: jenkins
     notify: restart jenkins
 
-  # Make sure Jenkins is started
-  - name: Ensure Jenkins is started and runs on startup
-    service:
-      name: jenkins
-      state: started
-      enabled: yes
-
   - name: Wait until Jenkins is available
     uri:
       url: "{{ jenkins_url }}/cli"

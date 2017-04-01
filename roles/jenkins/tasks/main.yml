@@ -22,6 +22,15 @@
       group: jenkins
       mode: 0775
 
+  - name: Disable Jenkins setup wizard
+    copy:
+      dest: /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
+      content: 2.0
+      owner: jenkins
+      group: jenkins
+      mode: 0755
+    become: yes
+
   - name: Create post-initialization script
     template:
       src: basic_security.groovy

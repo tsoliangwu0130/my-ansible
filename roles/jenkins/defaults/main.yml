@@ -1,5 +1,6 @@
 ---
-jenkins_url: http://localhost:8080
+jenkins_port: 8080
+jenkins_url: http://localhost:{{ jenkins_port }}
 jenkins_home: /var/lib/jenkins
 
 # default admin

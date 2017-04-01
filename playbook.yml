@@ -1,4 +1,4 @@
 ---
 - hosts: jenkins_server
   roles:
-    - { role: jenkins, become: yes }
+    - { role: jenkins, become: yes, jenkins_admin_username: tsoliang, jenkins_admin_password: tsoliang }

@@ -1,5 +1,5 @@
 ---
-  - name: add EPEL repository (CentOS-6)
+  - name: Add EPEL repository (CentOS-6)
     yum_repository:
       name: EPEL
       description: EPEL yum repo
@@ -7,19 +7,19 @@
       gpgkey: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
     when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
 
-  - name: install EPEL (CentOS-7)
+  - name: Install EPEL (CentOS-7)
     yum:
       name: epel-release
     when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
 
-  - name: install pip (CentOS)
+  - name: Install pip (CentOS)
     yum:
       name: python-pip
       state: installed
       update_cache: yes
     when: ansible_distribution == 'CentOS'
 
-  - name: install pip (Ubuntu/Debian)
+  - name: Install pip (Ubuntu/Debian)
     apt:
       name: python-pip
       update_cache: yes

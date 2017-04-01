@@ -1,5 +1,5 @@
 ---
-  - name: install jenkins plugins
+  - name: Install Jenkins plugins
     jenkins_plugin:
       name: "{{ item }}"
       url_username: "{{ jenkins_admin_username }}"

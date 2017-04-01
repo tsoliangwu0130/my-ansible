@@ -1,20 +1,20 @@
 ---
-  - name: add jenkins key
+  - name: Add Jenkins key
     apt_key:
       url: http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key
       state: present
 
-  - name: add jenkins repository
+  - name: Add Jenkins repository
     apt_repository:
       repo: deb http://pkg.jenkins-ci.org/debian binary/
       state: present
 
-  - name: install jenkins
+  - name: Install Jenkins
     apt:
       name: jenkins
       update_cache: yes
 
-  - name: create custom init scripts directory
+  - name: Create custom init scripts directory
     file:
       path: "{{ jenkins_home }}/init.groovy.d"
       state: directory
@@ -22,7 +22,7 @@
       group: jenkins
       mode: 0775
 
-  - name: create post-initialization script
+  - name: Create post-initialization script
     template:
       src: basic_security.groovy
       dest: "{{ jenkins_home }}/init.groovy.d/basic_security.groovy"
@@ -31,11 +31,11 @@
     notify: restart jenkins
 
   # Make sure Jenkins is started
-  - name: ensure jenkins is started and runs on startup
+  - name: Ensure Jenkins is started and runs on startup
     service:
       name: jenkins
       state: started
       enabled: yes
 
-  - name: install jenkins plugins
+  - name: Install Jenkins plugins
     include: plugins.yml

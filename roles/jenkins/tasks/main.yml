@@ -14,14 +14,6 @@
       name: jenkins
       update_cache: yes
 
-  - name: Create custom init scripts directory
-    file:
-      path: "{{ jenkins_home }}/init.groovy.d"
-      state: directory
-      owner: jenkins
-      group: jenkins
-      mode: 0775
-
   - name: Disable Jenkins setup wizard
     copy:
       dest: /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
@@ -33,8 +25,8 @@
 
   - name: Create post-initialization script
     template:
-      src: basic_security.groovy
-      dest: "{{ jenkins_home }}/init.groovy.d/basic_security.groovy"
+      src: init.groovy
+      dest: "{{ jenkins_home }}/init.groovy"
       owner: jenkins
       group: jenkins
     notify: restart jenkins

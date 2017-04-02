@@ -6,7 +6,6 @@
       owner: jenkins
       group: jenkins
       mode: 0755
-    become: yes
 
   - name: Configure slave to master access control
     template:

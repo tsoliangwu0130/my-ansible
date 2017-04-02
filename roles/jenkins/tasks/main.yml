@@ -14,22 +14,8 @@
       name: jenkins
       update_cache: yes
 
-  - name: Disable Jenkins setup wizard
-    copy:
-      dest: /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
-      content: 2.0
-      owner: jenkins
-      group: jenkins
-      mode: 0755
-    become: yes
-
-  - name: Create post-initialization script
-    template:
-      src: init.groovy
-      dest: "{{ jenkins_home }}/init.groovy"
-      owner: jenkins
-      group: jenkins
-    notify: restart jenkins
+  - name: Setup Jenkins
+    include: setting.yml
 
   - name: Wait until Jenkins is available
     uri:

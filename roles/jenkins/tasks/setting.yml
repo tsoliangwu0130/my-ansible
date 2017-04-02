@@ -11,6 +11,8 @@
     file:
       path: "{{ jenkins_home }}/secrets/"
       state: directory
+      owner: jenkins
+      group: jenkins
       mode: 0755
 
   - name: Configure slave to master access control

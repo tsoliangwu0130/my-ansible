@@ -9,10 +9,12 @@
     become: yes
 
   - name: Configure slave to master access control
-    lineinfile:
+    template:
+      src: slave-to-master-security-kill-switch
       dest: "{{ jenkins_home }}/secrets/slave-to-master-security-kill-switch"
-      line: false
-      create: yes
+      owner: jenkins
+      group: jenkins
+    notify: restart jenkins
 
   - name: Create post-initialization script
     template:

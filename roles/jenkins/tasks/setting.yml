@@ -1,4 +1,4 @@
----  
+---
   - name: Disable Jenkins setup wizard
     copy:
       dest: /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
@@ -7,6 +7,12 @@
       group: jenkins
       mode: 0755
     become: yes
+
+  - name: Configure slave to master access control
+    lineinfile:
+      dest: "{{ jenkins_home }}/secrets/slave-to-master-security-kill-switch"
+      line: false
+      create: yes
 
   - name: Create post-initialization script
     template:

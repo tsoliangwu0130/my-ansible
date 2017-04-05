@@ -15,6 +15,7 @@ Ansible Roles
 * [curl](roles/curl)
 * [git](roles/git)
 * [jenkins](roles/jenkins)
+* [jenkins_ansible_lint](roles/jenkins_ansible_lint)
 * [pip](roles/pip)
 
 Ansible Playbooks

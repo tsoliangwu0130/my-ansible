@@ -27,3 +27,6 @@ jenkins_plugins_list:
   - timestamper
   - workflow-aggregator
   - ws-cleanup
+
+  # plugins variables
+  git_plugin: git@3.2.0

@@ -1,0 +1,7 @@
+---
+repo_url: https://github.com/tsoliangwu0130/tsoliang-ansible.git
+repo_branch: */master
+
+build_command: |
+  cd roles
+  ansible-lint *

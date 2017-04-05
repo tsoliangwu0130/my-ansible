@@ -11,7 +11,7 @@ Vagrant
 Ansible Roles
 --------------
 
-* [ansible-lint](roles/ansible-lint)
+* [ansible_lint](roles/ansible_lint)
 * [curl](roles/curl)
 * [git](roles/git)
 * [jenkins](roles/jenkins)

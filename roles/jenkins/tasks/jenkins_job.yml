@@ -1,4 +1,4 @@
----  
+---
   - name: Install jenkins_job module dependencies (via apt-get)
     apt:
       name: "{{ item }}"

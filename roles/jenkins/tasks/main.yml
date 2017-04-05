@@ -26,5 +26,8 @@
     retries: 30
     delay: 1
 
+  - name: Install jenkins_job module dependencies
+    include: jenkins_job.yml
+
   - name: Install Jenkins plugins
     include: plugins.yml

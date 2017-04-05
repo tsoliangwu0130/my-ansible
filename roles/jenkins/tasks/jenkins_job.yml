@@ -1,0 +1,12 @@
+---  
+  - name: Install jenkins_job module dependencies (via apt-get)
+    apt:
+      name: "{{ item }}"
+    with_items:
+      - libxml2-dev
+      - libxslt1-dev
+      - python-lxml
+
+  - name: Install jenkins_job module dependencies (via pip)
+    pip:
+      name: python-jenkins

@@ -1,2 +1,6 @@
 ---
   - jenkins_job:
+      config: "{{ lookup('templates', 'templates/config.xml') }}"
+      name: "{{ jenkins_admin_username }}"
+      password: "{{ jenkins_admin_password }}"
+      url: "{{ jenkins_url }}"

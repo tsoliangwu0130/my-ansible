@@ -28,5 +28,5 @@ jenkins_plugins_list:
   - workflow-aggregator
   - ws-cleanup
 
-  # plugins variables
-  git_plugin: git@3.2.0
+# plugins variables
+git_plugin: git@3.2.0

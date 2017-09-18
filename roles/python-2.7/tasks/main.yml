@@ -1,0 +1,16 @@
+---
+- name: Add a third party python 2.7 repository
+  apt_repository:
+    repo: "{{ python2_7_repo }}"
+    state: present
+  become: yes
+
+- name: Install python 2.7
+  apt:
+    name: "{{ item }}"
+    state: installed
+    update_cache: yes
+  with_items:
+    - python2.7
+    - python2.7-dev
+  become: yes

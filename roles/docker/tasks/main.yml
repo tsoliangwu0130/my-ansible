@@ -1,0 +1,22 @@
+---
+- name: Install packages to allow apt to use a repository over HTTPS
+  apt:
+    name: "{{ item }}"
+    state: installed
+    update_cache: yes
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+  become: yes
+
+- name: Add Docker’s official GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  register: result
+  become: yes
+
+- name: debug
+  debug: "{{ result }}"

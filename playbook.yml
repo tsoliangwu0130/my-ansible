@@ -1,4 +1,4 @@
 ---
-- hosts: jenkins_server
+- hosts: server
   roles:
-    - { role: jenkins_ansible_lint, become: yes, jenkins_admin_username: tsoliang, jenkins_admin_password: tsoliang }
+    - { role: python-2.7 }

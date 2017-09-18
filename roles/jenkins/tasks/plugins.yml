@@ -1,8 +1,0 @@
----
-  - name: Install Jenkins plugins
-    jenkins_plugin:
-      name: "{{ item }}"
-      url_username: "{{ jenkins_admin_username }}"
-      url_password: "{{ jenkins_admin_password }}"
-    with_items: "{{ jenkins_plugins_list }}"
-    notify: restart jenkins

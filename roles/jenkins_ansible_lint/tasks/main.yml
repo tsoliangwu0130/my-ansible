@@ -1,8 +1,0 @@
----
-  - name: Create {{ job_name }} job using basic authentication
-    jenkins_job:
-      config: "{{ lookup('template', 'templates/config.xml') }}"
-      name: "{{ job_name }}"
-      password: "{{ jenkins_admin_password }}"
-      url: "{{ jenkins_url }}"
-      user: "{{ jenkins_admin_username }}"

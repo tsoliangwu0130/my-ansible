@@ -1,4 +1,0 @@
----
-  dependencies:
-    - { role: ansible_lint, become: yes }
-    - { role: jenkins, become: yes }

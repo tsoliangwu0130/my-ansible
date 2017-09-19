@@ -1,13 +1,4 @@
 ---
-- name: Install easy_install
-  apt:
-    name: "{{ item }}"
-    update_cache: yes
-  with_items:
-    - python-setuptools
-    - python-dev
-    - build-essential
-
 - name: Install pip
-  easy_install:
-    name: pip
+  apt:
+    name: python-pip

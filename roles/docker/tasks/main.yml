@@ -8,7 +8,6 @@
 - name: Install packages to allow apt to use a repository over HTTPS
   apt:
     name: "{{ item }}"
-    state: present
     update_cache: yes
   with_items:
     - apt-transport-https
@@ -20,13 +19,11 @@
 - name: Add Docker’s official GPG key
   apt_key:
     url: "https://download.docker.com/linux/ubuntu/gpg"
-    state: present
   become: yes
 
 - name: Set up the stable repository
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
-    state: present
   become: yes
 
 - name: Install Docker CE

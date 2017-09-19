@@ -1,25 +1,19 @@
-Tso-Liang's Ansible 
-===================
+Tso-Liang's Ansible [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+-------------------
 
-The repository where I collect all my Ansible playbooks, roles, Vagrantfile, etc.
+Ansible roles / playbooks to setup some tools like [Docker](https://www.docker.com/), [Jenkins](https://jenkins.io/), etc on Linux machine. Currently only support [Ubuntu 14.04](http://releases.ubuntu.com/14.04/).
 
-Vagrant
--------
+### Vagrant
 
 * [Vagrantfile](Vagrantfile)
 
-Ansible Roles
---------------
+### Ansible Roles
 
-* [ansible_lint](roles/ansible_lint)
-* [curl](roles/curl)
-* [git](roles/git)
-* [jenkins](roles/jenkins)
-* [jenkins_ansible_lint](roles/jenkins_ansible_lint)
 * [pip](roles/pip)
+* [docker](roles/docker)
+* [docker-jenkins](roles/docker-jenkins)
 
-Ansible Playbooks
------------------
+### Ansible Playbooks
 
 * [playbooks_example](playbook_example.yml)
-* [playbook](playbook.yml)
+* [docker-jenkins.yml](docker-jenkins.yml)

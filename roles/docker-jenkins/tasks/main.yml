@@ -1,8 +1,4 @@
 ---
-- name: Install docker-py
-  pip:
-    name: docker-py
-
 - name: Pull the Jenkins image
   docker_image:
     name: library/jenkins
@@ -11,3 +7,6 @@
   docker_container:
     name: jenkins
     image: jenkins
+    published_ports:
+      - "8080:8080"
+      - "50000:50000"

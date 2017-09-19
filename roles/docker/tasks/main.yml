@@ -1,13 +1,4 @@
 ---
-- name: Install prerequisite python libraries
-  pip:
-    name: "{{ item }}"
-  with_items:
-    - urllib3
-    - pyOpenSSL
-    - ndg-httpsclient
-    - pyasn1
-
 - name: Install packages to allow apt to use a repository over HTTPS
   apt:
     name: "{{ item }}"
@@ -18,10 +9,16 @@
     - curl
     - software-properties-common
 
-- name: Add Docker’s official GPG key
+- name: Add Docker repository key
   apt_key:
     id: "{{ apt_key_sig }}"
     keyserver: "{{ apt_key_url }}"
+  register: add_repository_key
+  ignore_errors: true
+
+- name: Alternative - Add Docker repository key
+  shell: "curl -sSL {{ apt_key_url }} | sudo apt-key add -"
+  when: add_repository_key | failed
 
 - name: Set up the stable repository
   apt_repository:
@@ -31,3 +28,7 @@
   apt:
     name: docker-ce
     update_cache: yes
+
+- name: Install docker-py
+  pip:
+    name: docker-py

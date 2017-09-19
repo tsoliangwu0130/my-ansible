@@ -1,8 +1,12 @@
 ---
-- name: Install Python 2.7
-  include_role:
-    name: python-2.7
-  when: ansible_python_version | version_compare('2.7.9', '<')
+- name: Install prerequisite python libraries
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - urllib3
+    - pyOpenSSL
+    - ndg-httpsclient
+    - pyasn1
 
 - name: Install packages to allow apt to use a repository over HTTPS
   apt:

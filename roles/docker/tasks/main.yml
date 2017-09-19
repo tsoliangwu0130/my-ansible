@@ -20,7 +20,8 @@
 
 - name: Add Docker’s official GPG key
   apt_key:
-    url: "https://download.docker.com/linux/ubuntu/gpg"
+    id: "{{ apt_key_sig }}"
+    keyserver: "{{ apt_key_url }}"
 
 - name: Set up the stable repository
   apt_repository:

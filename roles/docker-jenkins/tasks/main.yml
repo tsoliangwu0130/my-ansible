@@ -1,0 +1,13 @@
+---
+- name: Install docker-py
+  pip:
+    name: docker-py
+
+- name: Pull the Jenkins image
+  docker_image:
+    name: library/jenkins
+
+- name: Create Jenkins container
+  docker_container:
+    name: jenkins
+    image: jenkins

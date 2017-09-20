@@ -1,8 +1,4 @@
 ---
-- name: Pull the Jenkins image
-  docker_image:
-    name: library/jenkins
-
 - name: Create Jenkins container
   docker_container:
     name: jenkins

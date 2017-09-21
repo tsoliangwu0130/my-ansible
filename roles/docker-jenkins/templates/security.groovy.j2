@@ -7,7 +7,8 @@ import jenkins.security.s2m.AdminWhitelistRule
 def instance = Jenkins.getInstance()
 
 def hudsonRealm = new HudsonPrivateSecurityRealm(false)
-hudsonRealm.createAccount("{{ jenkins_admin_user}}", "{{ jenkins_admin_pass }}")
+hudsonRealm.createAccount("{{ jenkins_admin_user | default('admin') }}",
+                          "{{ jenkins_admin_pass | default('admin') }}")
 instance.setSecurityRealm(hudsonRealm)
 
 def strategy = new FullControlOnceLoggedInAuthorizationStrategy()

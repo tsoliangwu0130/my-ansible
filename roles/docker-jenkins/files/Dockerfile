@@ -1,4 +1,4 @@
-FROM jenkins:alpine
+FROM jenkins:latest
 
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 

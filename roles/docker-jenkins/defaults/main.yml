@@ -1,6 +1,6 @@
 ---
 jenkins_admin_user: admin
-jenkins_admin_pswd: admin
+jenkins_admin_pass: admin
 
 docker_jenkins_image: docker-jenkins
 docker_jenkins_container: docker-jenkins

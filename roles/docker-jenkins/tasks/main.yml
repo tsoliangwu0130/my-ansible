@@ -1,8 +1,29 @@
 ---
-- name: Create Jenkins container
+- name: Create {{ docker_jenkins_home }} directory
+  file:
+    path: "{{ docker_jenkins_home }}"
+    state: directory
+
+- name: Copy Dockerfile and plugins.txt
+  copy:
+    src: files/
+    dest: "{{ docker_jenkins_home }}"
+
+- name: Copy security.groovy
+  template:
+    src: templates/security.groovy.j2
+    dest: "{{ docker_jenkins_home }}/security.groovy"
+
+- name: Build {{ docker_jenkins_image }} image
+  docker_image:
+    path: "{{ docker_jenkins_home }}"
+    name: "{{ docker_jenkins_image }}"
+    state: present
+
+- name: Create {{ docker_jenkins_container }} container
   docker_container:
-    name: jenkins
-    image: jenkins
+    name: "{{ docker_jenkins_container }}"
+    image: "{{ docker_jenkins_image }}"
     published_ports:
       - "8080:8080"
       - "50000:50000"

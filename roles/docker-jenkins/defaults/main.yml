@@ -1,0 +1,7 @@
+---
+jenkins_admin_user: admin
+jenkins_admin_pswd: admin
+
+docker_jenkins_image: docker-jenkins
+docker_jenkins_container: docker-jenkins
+docker_jenkins_home: "{{ docker_home }}/docker-jenkins"

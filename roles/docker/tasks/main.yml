@@ -32,3 +32,8 @@
 - name: Install docker-py
   pip:
     name: docker-py
+
+- name: Create {{ docker_home }} directory
+  file:
+    path: "{{ docker_home }}"
+    state: directory

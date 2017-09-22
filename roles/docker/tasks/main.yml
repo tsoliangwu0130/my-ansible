@@ -18,6 +18,8 @@
 
 - name: Alternative - Add Docker repository key
   shell: "curl -sSL {{ apt_key_url }} | sudo apt-key add -"
+  args:
+    warn: no
   when: add_repository_key | failed
 
 - name: Set up the stable repository

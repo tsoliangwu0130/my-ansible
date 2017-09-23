@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 
 		# run playbook from Vagrant host
 		server_config.vm.provision "ansible" do |ansible|
-			ansible.playbook = "docker-jenkins.yml"
+			ansible.playbook = "jenkins-ansible-lint.yml"
 		end
 	  end
 end

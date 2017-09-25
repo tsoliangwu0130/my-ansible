@@ -2,7 +2,13 @@ FROM jenkins:latest
 
 # install tools with root user
 USER root
-RUN apt-get update && apt-get install -y{% for apt_package in apt_packages %} {{ apt_package }}{% endfor %}
+{% if apt_packages is defined %}
+RUN apt-get update && apt-get install -y {% for apt_package in apt_packages %}{{ apt_package }} {% endfor %}
+{% endif %}
+
+{% if pip_packages is defined %}
+RUN pip install {% for pip_package in pip_packages %}{{ pip_package }} {% endfor %}
+{% endif %}
 
 # drop back to the regular jenkins user
 USER jenkins

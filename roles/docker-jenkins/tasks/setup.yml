@@ -1,0 +1,18 @@
+---
+- name: Create {{ docker_jenkins_home }} directory
+  file:
+    path: "{{ docker_jenkins_home }}"
+    state: directory
+
+- name: Copy files to server
+  copy:
+    src: files/plugins.txt
+    dest: "{{ docker_jenkins_home }}"
+
+- name: Copy templates to server
+  template:
+    src: "templates/{{ item }}.j2"
+    dest: "{{ docker_jenkins_home }}/{{ item }}"
+  with_items:
+    - Dockerfile
+    - security.groovy

@@ -1,0 +1,8 @@
+---
+- name: Install python-lxml via apt
+  apt:
+    name: python-lxml
+
+- name: Install python-jenkins via pip
+  pip:
+    name: python-jenkins

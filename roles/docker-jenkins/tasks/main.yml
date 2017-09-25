@@ -1,29 +1,6 @@
 ---
-- name: Install python-lxml via apt
-  apt:
-    name: python-lxml
-
-- name: Install python-jenkins via pip
-  pip:
-    name: python-jenkins
-
-- name: Create {{ docker_jenkins_home }} directory
-  file:
-    path: "{{ docker_jenkins_home }}"
-    state: directory
-
-- name: Copy files to server
-  copy:
-    src: files/plugins.txt
-    dest: "{{ docker_jenkins_home }}"
-
-- name: Copy templates to server
-  template:
-    src: "templates/{{ item }}.j2"
-    dest: "{{ docker_jenkins_home }}/{{ item }}"
-  with_items:
-    - Dockerfile
-    - security.groovy
+- name: Setup docker environment
+  include: setup.yml
 
 - name: Build {{ docker_jenkins_image }} image
   docker_image:
@@ -38,3 +15,14 @@
     published_ports:
       - "8080:8080"
       - "50000:50000"
+
+- name: Install dependencies for jenkins_job module
+  include: dependencies.yml
+
+- name: Wait for jenkins to come up
+  uri:
+    url: "{{ jenkins_url }}"
+  register: jenkins_url_result
+  until: jenkins_url_result.status == 200
+  retries: 5
+  delay: 10

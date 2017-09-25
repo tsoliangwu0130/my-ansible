@@ -1,7 +1,1 @@
 ---
-- name: Install packages in docker container
-  docker_container:
-    name: "{{ docker_jenkins_container }}"
-    images: "{{ docker_jenkins_image }}"
-    command: echo "hello"
-    state: present

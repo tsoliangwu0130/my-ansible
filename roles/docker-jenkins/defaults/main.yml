@@ -2,3 +2,6 @@
 docker_jenkins_image: docker-jenkins
 docker_jenkins_container: docker-jenkins
 docker_jenkins_home: "{{ docker_home }}/docker-jenkins"
+
+apt_packages:
+  - python-pip

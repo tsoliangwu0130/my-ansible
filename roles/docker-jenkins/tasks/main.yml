@@ -4,15 +4,18 @@
     path: "{{ docker_jenkins_home }}"
     state: directory
 
-- name: Copy Dockerfile and plugins.txt
+- name: Copy files to server
   copy:
-    src: files/
+    src: files/plugins.txt
     dest: "{{ docker_jenkins_home }}"
 
-- name: Copy security.groovy
+- name: Copy templates to server
   template:
-    src: templates/security.groovy.j2
-    dest: "{{ docker_jenkins_home }}/security.groovy"
+    src: "templates/{{ item }}.j2"
+    dest: "{{ docker_jenkins_home }}/{{ item }}"
+  with_items:
+    - Dockerfile
+    - security.groovy
 
 - name: Build {{ docker_jenkins_image }} image
   docker_image:

@@ -1,4 +1,11 @@
 FROM jenkins:latest
+
+# install tools with root user
+USER root
+RUN apt-get update && apt-get install -y{% for apt_package in apt_packages %} {{ apt_package }}{% endfor %}
+
+# drop back to the regular jenkins user
+USER jenkins
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 COPY security.groovy /usr/share/jenkins/ref/init.groovy.d/security.groovy
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt

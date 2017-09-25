@@ -1,6 +1,2 @@
 ---
-apt_packages:
-  - python-pip
-
-pip_packages:
-  - ansible-lint
+repo_url: https://github.com/tsoliangwu0130/my-ansible.git

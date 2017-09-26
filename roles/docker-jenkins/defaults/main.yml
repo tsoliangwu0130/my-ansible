@@ -3,7 +3,9 @@ docker_jenkins_image: docker-jenkins
 docker_jenkins_container: docker-jenkins
 docker_jenkins_home: "{{ docker_home }}/docker-jenkins"
 
-jenkins_url: http://localhost:8080
+jenkins_server_url: http://localhost
+jenkins_port: 8080
+jenkins_url: "{{ jenkins_server_url }}:{{ jenkins_port }}"
 
 apt_packages:
   - python-pip

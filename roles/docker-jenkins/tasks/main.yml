@@ -13,7 +13,7 @@
     name: "{{ docker_jenkins_container }}"
     image: "{{ docker_jenkins_image }}"
     published_ports:
-      - "8080:8080"
+      - "{{ jenkins_port }}:{{ jenkins_port }}"
       - "50000:50000"
 
 - name: Install dependencies for jenkins_job module

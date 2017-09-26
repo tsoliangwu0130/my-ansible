@@ -1,4 +1,7 @@
 ---
 - hosts: server
   roles:
-    - { role: docker-jenkins, become: yes, jenkins_admin_user: admin, jenkins_admin_pass: admin }
+    - { role: docker-jenkins, become: yes }
+  vars:
+    - jenkins_admin_user: admin
+    - jenkins_admin_pass: admin

@@ -23,6 +23,8 @@ Ansible roles / playbooks to setup some tools like [Docker](https://www.docker.c
 
 ## Usage - Locally
 
+#### ansible-playbook
+
 1. Install [Vagrant](https://www.vagrantup.com/) and [Ansible](https://www.ansible.com/) on your local machine
 
 2. Copy your SSH public key (if you don't have one, follow this [guideline](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) and create one)
@@ -45,3 +47,17 @@ Ansible roles / playbooks to setup some tools like [Docker](https://www.docker.c
     ```
     $ ansible-playbook docker-jenkins.yml -i inventory
     ```
+
+#### vagrant provision
+
+Since the ansible-playbook is also defined in [Vagrantfile](Vagrantfile) provision block, we can run the ansible-playbook when the VM first starts:
+
+```shell
+$ vagrant up
+```
+
+or do provision whenever you want run the playbook via vagrant:
+
+```shell
+$ vagrant provision
+```

@@ -13,11 +13,13 @@ Ansible roles / playbooks to setup some tools like [Docker](https://www.docker.c
 * [pip](roles/pip)
 * [docker](roles/docker)
 * [docker-jenkins](roles/docker-jenkins)
+* [jenkins-ansible-lint](roles/jenkins-ansible-lint)
 
 #### Ansible Playbooks
 
 * [playbooks_example](playbook_example.yml)
-* [docker-jenkins.yml](docker-jenkins.yml)
+* [docker-jenkins](docker-jenkins.yml)
+* [jenkins-ansible-lint](jenkins-ansible-lint.yml)
 
 ## Usage - Locally
 

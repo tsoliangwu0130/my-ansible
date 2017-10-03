@@ -5,3 +5,6 @@
   vars:
     - jenkins_admin_user: admin
     - jenkins_admin_pass: admin
+    - slack_team_domain: jenkins-notify-test
+    - slack_token: REPLACE_SLACK_TOKEN
+    - slack_room: "#ansible-lint"

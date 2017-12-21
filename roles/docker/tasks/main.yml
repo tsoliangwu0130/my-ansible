@@ -6,7 +6,6 @@
   with_items:
     - apt-transport-https
     - ca-certificates
-    - curl
     - software-properties-common
 
 - name: Add Docker repository key

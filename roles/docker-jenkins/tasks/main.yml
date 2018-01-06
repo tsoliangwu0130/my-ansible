@@ -15,6 +15,7 @@
     published_ports:
       - "{{ jenkins_port }}:{{ jenkins_port }}"
       - "50000:50000"
+    restart_policy: always
 
 - name: Install dependencies for jenkins_job module
   include: dependencies.yml

@@ -29,13 +29,13 @@ Ansible roles / playbooks to setup some tools like [Docker](https://www.docker.c
 
 2. Copy your SSH public key (if you don't have one, follow this [guideline](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) and create one)
 
-    ```
+    ```shell
     $ cat ~/.ssh/id_rsa.pub | pbcopy
     ```
 
 3. Run and log in the VM via SSH
 
-    ```
+    ```shell
     $ vagrant up
     $ vagrant ssh
     ```
@@ -44,7 +44,7 @@ Ansible roles / playbooks to setup some tools like [Docker](https://www.docker.c
 
 5. Log out the VM and run any Ansible playbook you like (feel free to modify [inventory](inventory) file as needed)
 
-    ```
+    ```shell
     $ ansible-playbook docker-jenkins.yml -i inventory
     ```
 
